@@ -179,7 +179,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentsController.cs" />
+    <Compile Include="Controllers\Clients1Controller.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\EmailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Model1.cs" />
@@ -208,6 +211,7 @@
     <Compile Include="Models\Session.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ClientViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-flatly.css" />
@@ -290,6 +294,16 @@
     <Content Include="Views\Sessions\Details.cshtml" />
     <Content Include="Views\Sessions\Edit.cshtml" />
     <Content Include="Views\Sessions\Index.cshtml" />
+    <Content Include="Views\Clients1\Create.cshtml" />
+    <Content Include="Views\Clients1\Delete.cshtml" />
+    <Content Include="Views\Clients1\Details.cshtml" />
+    <Content Include="Views\Clients1\Edit.cshtml" />
+    <Content Include="Views\Clients1\Index.cshtml" />
+    <Content Include="Views\Emails\Create.cshtml" />
+    <Content Include="Views\Emails\Delete.cshtml" />
+    <Content Include="Views\Emails\Details.cshtml" />
+    <Content Include="Views\Emails\Edit.cshtml" />
+    <Content Include="Views\Emails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

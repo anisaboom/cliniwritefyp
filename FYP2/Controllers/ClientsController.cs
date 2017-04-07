@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-
 using FYP2.Models;
 using PagedList;
 
@@ -13,7 +12,9 @@ namespace FYP2.Controllers
     public class ClientsController : Controller
     {
         private Model1 db = new Model1();
+
         // GET: Clients
+        [Authorize]
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = sortOrder;

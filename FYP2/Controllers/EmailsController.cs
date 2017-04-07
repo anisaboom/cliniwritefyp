@@ -10,113 +10,107 @@ using FYP2.Models;
 
 namespace FYP2.Controllers
 {
-    public class AppointmentsController : Controller
+    public class EmailsController : Controller
     {
         private Model1 db = new Model1();
 
-        // GET: Appointments
-        [Authorize]
+        // GET: Emails
         public ActionResult Index()
         {
-            var appointments = db.Appointments.Include(a => a.Client);
-            return View(appointments.ToList());
+            return View(db.Emails.ToList());
         }
 
-        // GET: Appointments/Details/5
+        // GET: Emails/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appointment appointment = db.Appointments.Find(id);
-            if (appointment == null)
+            Email email = db.Emails.Find(id);
+            if (email == null)
             {
                 return HttpNotFound();
             }
-            return View(appointment);
+            return View(email);
         }
 
-        // GET: Appointments/Create
+        // GET: Emails/Create
         public ActionResult Create()
         {
-            ViewBag.clientid = new SelectList(db.Clients, "id", "fullname");
             return View();
         }
 
-        // POST: Appointments/Create
+        // POST: Emails/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,starttime,endtimee,date,clientid")] Appointment appointment)
+        public ActionResult Create([Bind(Include = "ID,To,Subject,FirstName,LastName,DateOfBirth,Message")] Email email)
         {
             if (ModelState.IsValid)
             {
-                db.Appointments.Add(appointment);
+                db.Emails.Add(email);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.clientid = new SelectList(db.Clients, "id", "fullname", appointment.clientid);
-            return View(appointment);
+            return View(email);
         }
 
-        // GET: Appointments/Edit/5
+        // GET: Emails/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appointment appointment = db.Appointments.Find(id);
-            if (appointment == null)
+            Email email = db.Emails.Find(id);
+            if (email == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.clientid = new SelectList(db.Clients, "id", "fullname", appointment.clientid);
-            return View(appointment);
+            return View(email);
         }
 
-        // POST: Appointments/Edit/5
+        // POST: Emails/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,starttime,endtimee,date,clientid")] Appointment appointment)
+        public ActionResult Edit([Bind(Include = "ID,To,Subject,FirstName,LastName,DateOfBirth,Message")] Email email)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(appointment).State = EntityState.Modified;
+                db.Entry(email).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.clientid = new SelectList(db.Clients, "id", "fullname", appointment.clientid);
-            return View(appointment);
+            return View(email);
         }
 
-        // GET: Appointments/Delete/5
+        // GET: Emails/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Appointment appointment = db.Appointments.Find(id);
-            if (appointment == null)
+            Email email = db.Emails.Find(id);
+            if (email == null)
             {
                 return HttpNotFound();
             }
-            return View(appointment);
+            return View(email);
         }
 
-        // POST: Appointments/Delete/5
+        // POST: Emails/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Appointment appointment = db.Appointments.Find(id);
-            db.Appointments.Remove(appointment);
+            Email email = db.Emails.Find(id);
+            db.Emails.Remove(email);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

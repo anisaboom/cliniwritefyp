@@ -12,24 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Client.firstname)
+            @Html.DisplayNameFor(model => model.Client.fullname)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.sessiondate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sessionnote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sessioncount)
-        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Client.firstname)
+            @Html.DisplayFor(modelItem => item.Client.fullname)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.sessiondate)

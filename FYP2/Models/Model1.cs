@@ -103,5 +103,7 @@ namespace FYP2.Models
                 .Property(e => e.sessionnote)
                 .IsUnicode(false);
         }
+
+        public System.Data.Entity.DbSet<FYP2.Models.Email> Emails { get; set; }
     }
 }

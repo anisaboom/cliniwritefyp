@@ -13,14 +13,17 @@ namespace FYP2.Models
 
         [Required]
         [StringLength(50)]
+
         public string starttime { get; set; }
 
         [Required]
         [StringLength(50)]
+       
         public string endtimee { get; set; }
 
         [Required]
         [StringLength(50)]
+        [DataType(DataType.Date)]
         public string date { get; set; }
 
         public int clientid { get; set; }

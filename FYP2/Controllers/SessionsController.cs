@@ -15,6 +15,7 @@ namespace FYP2.Controllers
         private Model1 db = new Model1();
 
         // GET: Sessions
+        [Authorize(Roles = "Counsellor")]
         public ActionResult Index()
         {
             var sessions = db.Sessions.Include(s => s.Client);
@@ -39,7 +40,7 @@ namespace FYP2.Controllers
         // GET: Sessions/Create
         public ActionResult Create()
         {
-            ViewBag.clientid = new SelectList(db.Clients, "id", "firstname");
+            ViewBag.clientid = new SelectList(db.Clients, "id", "fullname");
             return View();
         }
 
@@ -57,7 +58,7 @@ namespace FYP2.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.clientid = new SelectList(db.Clients, "id", "firstname", session.clientid);
+            ViewBag.clientid = new SelectList(db.Clients, "id", "fullname", session.clientid);
             return View(session);
         }
 
@@ -73,7 +74,7 @@ namespace FYP2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.clientid = new SelectList(db.Clients, "id", "firstname", session.clientid);
+            ViewBag.clientid = new SelectList(db.Clients, "id", "fullname", session.clientid);
             return View(session);
         }
 
@@ -90,7 +91,7 @@ namespace FYP2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.clientid = new SelectList(db.Clients, "id", "firstname", session.clientid);
+            ViewBag.clientid = new SelectList(db.Clients, "id", "fullname", session.clientid);
             return View(session);
         }
 

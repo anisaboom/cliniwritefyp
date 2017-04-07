@@ -1,0 +1,103 @@
+﻿@model FYP2.ViewModels.ClientViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            firstname        </th>
+        <th>
+            lastname        </th>
+        <th>
+            dob        </th>
+        <th>
+            gender        </th>
+        <th>
+            phonnumber        </th>
+        <th>
+            email address        </th>
+        <th>
+            referral date</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Clients)
+    {
+        string selectedRow = "";
+        if (item.id == ViewBag.id)
+        {
+            selectedRow = "success";
+        }
+        <tr class="@selectedRow">    
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateofbirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phonenumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailaddress)
+            </td>
+                                       
+            <td>
+                @Html.ActionLink("Select", "Index", new { id = item.id }) |
+                @Html.ActionLink("Edit", "Edit", new {id = item.id}) |
+                @Html.ActionLink("Details", "Details", new {id = item.id}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.id})
+            </td>
+        </tr>
+    }
+
+</table>
+@if (Model.Sessions != null)
+{
+    <h3>clients and their sessions</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Client ID</th>
+            <th>session notes</th>
+            <th>Session Date</th>
+        </tr>
+
+        @foreach (var item in Model.Sessions)
+        {
+            string selectedRow = "";
+            if (item.clientid == ViewBag.clientid)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { clientid = item.sessiondate })
+                </td>
+                <td>
+                    @item.clientid
+                </td>
+                <td>
+                    @item.sessionnote
+                </td>
+                <td>
+                    @item.sessiondate
+                </td>
+            </tr>
+        }
+
+    </table>
+}
