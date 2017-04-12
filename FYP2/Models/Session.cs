@@ -13,6 +13,7 @@ namespace FYP2.Models
 
         [Required]
         [StringLength(10)]
+        [DataType(DataType.Date)]
         public string sessiondate { get; set; }
 
         [Required]

@@ -20,14 +20,7 @@
                 @Html.ActionLink("Tower Dreams", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Clients", "Index", "Clients")</li>
-                    <li>@Html.ActionLink("Sessions", "Index", "Sessions")</li>
-                    <li>@Html.ActionLink("Bookings", "Index", "Appointments")</li>
-                    <li>@Html.ActionLink("Manage Roles", "Index", "Roles")</li>
-
-                </ul>
+                
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -36,7 +29,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Tower Dreams</p>
+            <p>Tower Dreams</p>
         </footer>
     </div>
 

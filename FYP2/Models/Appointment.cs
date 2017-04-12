@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace FYP2.Models
 {
     using System;
@@ -13,19 +15,20 @@ namespace FYP2.Models
 
         [Required]
         [StringLength(50)]
-
+        [DisplayName("Start Time")]
         public string starttime { get; set; }
 
         [Required]
         [StringLength(50)]
-       
+        [DisplayName("End Time")]
         public string endtimee { get; set; }
 
         [Required]
         [StringLength(50)]
         [DataType(DataType.Date)]
+        [DisplayName("Date")]
         public string date { get; set; }
-
+        [DisplayName("Full Name")]
         public int clientid { get; set; }
 
         public virtual Client Client { get; set; }

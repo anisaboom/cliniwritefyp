@@ -304,6 +304,8 @@
     <Content Include="Views\Emails\Details.cshtml" />
     <Content Include="Views\Emails\Edit.cshtml" />
     <Content Include="Views\Emails\Index.cshtml" />
+    <Content Include="Views\Shared\_anon.cshtml" />
+    <Content Include="Views\Appointments\ReadOnly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
